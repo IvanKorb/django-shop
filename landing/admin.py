@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 
 
-class SubscriberAdmin(admin.ModelAdmin):
+class ClientAdmin(admin.ModelAdmin):
     list_display = ["name", "email"]
     # сортиротвка в админке
     # list_filter = ['email']
@@ -12,8 +12,8 @@ class SubscriberAdmin(admin.ModelAdmin):
     fields = ['email']
 
     class Meta:
-        model = Subscriber
+        model = Client
 
 
 # Register your models here.
-admin.site.register(Subscriber, SubscriberAdmin)
+admin.site.register(Client, ClientAdmin)

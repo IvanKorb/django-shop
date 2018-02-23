@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .forms import SubscriberForm
+from .forms import ClientForm
 
 # Create your views here.
 def landing(request):
     name = "Ivan Kor"
     current_day = "20.02.2018"
-    form = SubscriberForm(request.POST or None)
+    form = ClientForm(request.POST or None)
 
     if request.method == "POST" and form.is_valid():
         print(request.POST)
