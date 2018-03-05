@@ -1,41 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
+
+
 {% block content %}
     <div class="section-top">
-        <img src="{% static 'img/bg_img1.jpg' %} " class="img-responsive" alt="Responsive image">
+        <img src="{% static 'img/bg_img1.jpg' %} " class="img-responsive">
     </div>
-    <div class="section1">
+    <div class="section section1">
         <div class="container">
             <div class="row">
-
-                    {% for product_image in products_images%}
-                         <div class="col-lg-3">
-                            <div class="product-item">
-                                <div>
-                                    <img src="{{ product_image.image.url }}"  class="img-responsive">
-                                </div>
-                                <h4>
-                                    {{ product_image.product.author }}<br>
-                                    {{ product_image.product.name }}
-                                </h4>
-                                <p>
-                                    {{ product_image.product.description|truncatechars_html:70 }}
-                                </p>
-                                <div>
-                                    {{ product_image.product.price }} тг
-                                </div>
-                                <div class="add-to-cart-btn">
-                                    <button class="btn btn-success ">
-                                        Добавить в корзину
-                                    </button>
-                                </div>
-
-                            </div>
-
-                         </div>
-                    {% endfor %}
-
-
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Новые поступления
+                    </h1>
+                </div>
+                {% for product_image in products_images %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section section-delivery">
+        <div>
+            <h3>
+                Бесплатная доставка по Астане
+            </h3>
+        </div>
+    </div>
+    <div class="section section2 recomend-read-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Рекомендации к прочтению
+                    </h1>
+                </div>
+                {% for product_image in products_images_recommend %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section section3 classic-read-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Вечная классика
+                    </h1>
+                </div>
+                {% for product_image in products_images_classic %}
+                    {% include 'landing/product_item.html' %}
+                {% endfor %}
             </div>
         </div>
     </div>
