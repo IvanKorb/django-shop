@@ -6,13 +6,13 @@ html, body {
 
 }
 .product-item{
-    height: 360px;
+    height: 520px;
     background-color: white;
     border: 1px solid lightgrey;
     position: relative;
-    padding: 10px 0 10px 0;
+    padding: 10px 10px 10px 30px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .section-top{
