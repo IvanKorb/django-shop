@@ -40,4 +40,13 @@ class ProductInOrderAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(ProductInOrder, ProductInOrderAdmin)
 
+class ProductInBasketAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in ProductInBasket._meta.fields]
+
+    class Meta:
+        model = ProductInBasket
+
+
+# Register your models here.
+admin.site.register(ProductInBasket, ProductInBasketAdmin)
 
