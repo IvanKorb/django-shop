@@ -1,8 +1,9 @@
 from django.http import JsonResponse
+from .models import ProductInBasket
 from django.shortcuts import render
 
 # Create your views here.
-from orders.models import ProductInBasket
+
 
 
 def basket_adding(request):
@@ -17,7 +18,7 @@ def basket_adding(request):
     if is_delete == 'true':
         ProductInBasket.objects.filter(id=product_id).update(is_active=False)
     else:
-        new_product, created = ProductInBasket.objects. _or_create(session_key=session_key, product_id=product_id,
+        new_product, created = ProductInBasket.objects.get_or_create(session_key=session_key, product_id=product_id,
                                                                      is_active=True, defaults={"nmb": nmb})
 
         if not created:
@@ -40,3 +41,8 @@ def basket_adding(request):
         return_dict["products"].append(product_dict)
 
     return JsonResponse(return_dict)
+
+def checkout(request):
+    session_key = request.session.session_key
+    products_in_basket = ProductInBasket.objects.filter(session_key=session_key, is_active=True)
+    return render(request, 'orders/checkout.html', locals())
