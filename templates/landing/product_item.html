@@ -24,9 +24,11 @@
             {{ product_image.product.price }} тг
         </div>
         <div class="add-to-cart-btn">
+            <a href="{% url 'product'  product_image.product.id %}">
             <button class="btn btn-success">
                 Добавить в корзину
             </button>
+            </a>
         </div>
 
     </div>

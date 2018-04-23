@@ -111,3 +111,6 @@ html, body{
     color: #cc1111;
     font-weight: 900;
 }
+.form-error{
+    color: red;
+}
